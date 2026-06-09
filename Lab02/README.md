@@ -3,13 +3,34 @@
 **Nom :** Ton Nom
 **Numéro d'étudiant :** 300446274
 
-## Exercice 1 : Tests manuels (User Registration)
+## Exercice 1 - Résultats des tests manuels du formulaire d'inscription
 
-| Cas de Test | Résultats Escomptés | Résultats Actuels | Verdict |
-| :--- | :--- | :--- | :--- |
-| 1. Inscription valide | Succès, message de félicitations | | |
-| 2. Âge négatif | Erreur, l'âge doit être > 0 | | |
-| 3. Code postal invalide| Erreur, format non reconnu | | |
+| Cas de Test | Données saisies | Résultats Escomptés | Résultats Actuels (Screenshot) | Verdict |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Inscription valide** | Username: TestUser, Age: 19, Email:Usertest@uottawa.ca, CP: K1N 6N5 | L'inscription est acceptée. Message "Congratulations" affiché. | ![](./assets/Capture d’écran (777).png) | Succès |
+| **2. Âge trop jeune** | Age: 12 | L'inscription est refusée. Message d'erreur sur l'âge minimum requis. | ![](./assets/Capture d’écran (778).png) | Succès |
+| **3. Âge trop élevé** | Age: 150 | L'inscription est refusée. Message d'erreur indiquant un âge invalide. | ![](./assets/Capture d’écran (779).png) | Succès |
+| **4. Code Postal faux** | CP: 123456 | L'inscription est refusée. Message d'erreur sur le format du code postal. | ![](./assets/Capture d’écran (780).png) | Succès |
+| **5. Nom vide** | Username: (laissé vide) | L'inscription est refusée. Message demandant de remplir le champ obligatoire. | ![](./assets/Capture d’écran (781).png) | Succès |
 
-## Exercice 2 : Tests JUnit (NextDate)
-(On remplira cette partie plus tard quand on fera les tests java)
+### JUnit Parameterized Runner
+**Output from Running the test**
+![Output](./assets/Capture d’écran (794).png)
+
+### Exercice 2
+**Test Run using bin/test**
+![Terminal](./assets/Capture d’écran (799).png)
+
+**Typical explicit test case that doesn't use exceptions**
+![Code OK](./assets/Capture d’écran (793).png)
+
+**Explicit test cases that have exceptions**
+![Code Exception](./assets/Capture d’écran (795).png)
+
+**Parameterized test values for test cases that run OK and return a Date**
+![Params OK](./assets/Capture d’écran (796).png)
+
+**Parameterized test values for test cases that DO result in an exception**
+![Params Exception](./assets/Capture d’écran (797).png)
+
+

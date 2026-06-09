@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Lab02/ecs/ecs/lib/junit-platform-console-standalone-1.7.1.jar"
+    ]
+}
