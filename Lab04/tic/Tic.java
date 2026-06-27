@@ -47,6 +47,11 @@ public class Tic {
     }
 
 	public boolean isFull() {
-		return false;
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				if (board[i][j].equals("_")) return false; // Si on trouve un seul vide, c'est pas plein
+			}
+		}
+		return true;
 	}
 }
