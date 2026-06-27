@@ -26,4 +26,13 @@ class TicTest {
 		game.play(0, 0);
 		assertEquals("O", game.turn); 
 	}
+
+	@Test // #4. testing ability to prevent playing in an occupied cell
+	public void testOccupiedCell() {
+		Tic game = new Tic(3, 3);
+		game.play(0, 0);
+		assertThrows(RuntimeException.class, () -> {
+			game.play(0, 0); 
+		});
+	}
 }
