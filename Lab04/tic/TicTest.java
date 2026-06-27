@@ -72,4 +72,19 @@ class TicTest {
 		game.play(2, 2);                 
 		assertTrue(game.isWinner());
 	}
+ 
+	// #8. testing ability to detect a full board
+	@Test
+	public void testIsFull() {
+		Tic game = new Tic(3, 3);
+		assertFalse(game.isFull()); 
+		
+		// rempplissage de tableau
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				game.board[i][j] = "X";
+			}
+		}
+		assertTrue(game.isFull());
+	}
 }

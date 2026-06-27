@@ -44,5 +44,9 @@ public class Tic {
 		if (!board[0][2].equals("_") && board[0][2].equals(board[1][1]) && board[0][2].equals(board[2][0])) return true;
 
 		return false;
-   }
+    }
+
+	public boolean isFull() {
+		return false;
+	}
 }
