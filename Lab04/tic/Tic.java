@@ -30,6 +30,19 @@ public class Tic {
     }
 
    	public boolean isWinner() {
+		for (int i = 0; i < 3; i++) {
+    
+			// win Lignes
+			if (!board[i][0].equals("_") && board[i][0].equals(board[i][1]) && board[i][0].equals(board[i][2])) return true;
+			
+			// win Colonnes
+			if (!board[0][i].equals("_") && board[0][i].equals(board[1][i]) && board[0][i].equals(board[2][i])) return true;
+        }
+
+		// win Diagonales
+		if (!board[0][0].equals("_") && board[0][0].equals(board[1][1]) && board[0][0].equals(board[2][2])) return true;
+		if (!board[0][2].equals("_") && board[0][2].equals(board[1][1]) && board[0][2].equals(board[2][0])) return true;
+
 		return false;
-    }
+   }
 }
