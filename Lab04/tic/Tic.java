@@ -24,9 +24,10 @@ public class Tic {
 	}
 
 	public void play(int r, int c) {
+    if (!board[r][c].equals("_")) throw new RuntimeException();
     board[r][c] = turn;
-	turn = (turn.equals("X")) ? "O" : "X";
+    turn = (turn.equals("X")) ? "O" : "X";
     }
-	
+
 }
 
