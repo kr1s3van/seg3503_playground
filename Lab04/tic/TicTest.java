@@ -35,4 +35,41 @@ class TicTest {
 			game.play(0, 0); 
 		});
 	}
+    
+	// #5,6,7. testing ability to detect a winning condition
+	
+	@Test // #5. testing horrizontal win condition
+	public void testWinnerHorizontal() {
+		Tic game = new Tic(3, 3);
+		game.play(0, 0); 
+		game.play(1, 0); 
+		game.play(0, 1); 
+		game.play(1, 1); 
+		game.play(0, 2); 
+		
+		assertTrue(game.isWinner()); 
+	}
+
+	@Test // #6. testing vertical win condition
+    public void testWinnerVertical() {
+        Tic game = new Tic(3, 3);
+        game.play(0, 0); 
+        game.play(0, 1); 
+        game.play(1, 0); 
+        game.play(1, 1); 
+        game.play(2, 0); 
+        
+        assertTrue(game.isWinner());
+    }
+
+	@Test // #7. testing diagonal win condition
+	public void testWinnerDiagonal() {
+		Tic game = new Tic(3, 3);
+		game.play(0, 0); 
+		game.play(0, 1); 
+		game.play(1, 1); 
+		game.play(0, 2); 
+		game.play(2, 2);                 
+		assertTrue(game.isWinner());
+	}
 }

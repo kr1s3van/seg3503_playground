@@ -29,5 +29,7 @@ public class Tic {
     turn = (turn.equals("X")) ? "O" : "X";
     }
 
+   	public boolean isWinner() {
+		return false;
+    }
 }
-
