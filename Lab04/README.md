@@ -1,6 +1,24 @@
-# SEG3503 - Labo 4
+# Lab 04 - SEG 3503
 
-**Nom :** Ton Nom
-**Numéro d'étudiant :** 300446274
+## Etudiant 1
+**Student Name:** Kris-Evan N'Guessant
+**Student Number:** 300446274
 
-#
+## Etudiant 2
+**Student Name:** Marionne Gananvi
+**Student Number:** 300378952
+
+## Groupes de Commits TDD 
+
+| Cycle | Numéros de Commit (Rouge / Vert) | Description |
+| :--- | :--- | :--- |
+| **1. test()** | fbdd7d5308ca161edc3a96ef5223db4c7262ac09 (R)  e23f28cc24efa744f96f9631c0cf18dc37f99075 (V) | **Test de la capacité à déclarer un plateau (Equality)** : Ce test compare deux instances de `Tic` pour vérifier leur égalité structurelle. Lors de l'**essai rouge**, le test échouait car Java comparait uniquement les adresses mémoire des objets. Pour l'**essai vert**, j'ai surchargé la méthode `equals()` pour qu'elle compare le contenu de chaque case du tableau, assurant que deux plateaux identiques soient reconnus comme égaux. |
+| **2. testPlayMove()** | 6c25a875cdad24f8c149123fed0caf6181339c54 (R)  89e9c520c5846150642a564f8fdc90e73220cf3c (V) | **Test de la capacité à placer un coup sur le plateau** : On vérifie si le plateau enregistre bien le pion d'un joueur. À l'**essai rouge**, l'assertion échouait car le plateau restait vide après l'appel. À l'**essai vert**, j'ai implémenté l'assignation de la variable `turn` aux coordonnées `(r, c)` dans la méthode `play()`, validant ainsi la mise à jour du plateau. |
+| **3. testTurnChangesAfterMove()** | f26f525d6d2e6c5101d2331be557f38fc08db2ec (R)  048475458d990fdb6e01bdd1bc99f033eb510253 (V) | **Test de la capacité à changer de tour après un coup** : Ce test vérifie que le tour passe de 'X' à 'O'. À l'**essai rouge**, la variable `turn` restait fixée sur 'X'. À l'**essai vert**, j'ai ajouté une logique de bascule (opérateur ternaire) à la fin de `play()` pour alterner automatiquement entre les joueurs après chaque coup réussi. |
+| **4. testOccupiedCell()** | e192e5ca1ab0a4d5ad5300f63e41fde8283dd0e5 (R)  315e0dbdc1bcdb44e10ddf62de2da5cb640a3017 (V) | **Test de la capacité à empêcher de jouer dans une case occupée** : On veut éviter d'écraser un pion déjà placé. À l'**essai rouge**, le programme permettait de rejouer sur la même case sans erreur. À l'**essai vert**, j'ai ajouté une vérification au début de `play()` pour lancer une `RuntimeException` si la case cible ne contient pas le caractère de vide `_`. |
+| **5. testWinnerHorizontal()** | fb59940c4c652ab5f3def3dd9c2c7930f1283780 (R)  b900d92ceee18cb2ef9bf0d9b3a7fe6296cfbf7c (V) | **Test de la condition de victoire horizontale** : Vérifie l'alignement de 3 signes sur une ligne. À l'**essai rouge**, `isWinner()` renvoyait toujours `false`. À l'**essai vert**, j'ai implémenté une boucle de contrôle parcourant les lignes du tableau pour détecter si trois cases identiques et non vides sont alignées horizontalement. |
+| **6. testWinnerVertical()** | fb59940c4c652ab5f3def3dd9c2c7930f1283780 (R)  b900d92ceee18cb2ef9bf0d9b3a7fe6296cfbf7c (V) | **Test de la condition de victoire verticale** : Vérifie l'alignement sur une colonne. À l'**essai rouge**, la logique ne gérait que les lignes. À l'**essai vert**, j'ai étendu la méthode `isWinner()` avec une boucle itérant sur les colonnes pour identifier un alignement vertical complet. |
+| **7. testWinnerDiagonal()** | fb59940c4c652ab5f3def3dd9c2c7930f1283780 (R)  b900d92ceee18cb2ef9bf0d9b3a7fe6296cfbf7c (V) | **Test de la condition de victoire diagonale** : Détecte les victoires transversales. À l'**essai rouge**, les alignements en diagonale n'étaient pas reconnus. À l'**essai vert**, j'ai ajouté les conditions spécifiques testant la diagonale principale (0,0 à 2,2) et l'anti-diagonale (0,2 à 2,0) pour finaliser la logique de victoire. |
+| **8. testIsFull()** | 4974e480af5a3ccdb13f58bba38483dc04ec18ce (R)  bd5daabde4a7d2b2a97130acde7d64c698af4358 (V) | **Test de la capacité à détecter un plateau plein** : Indispensable pour gérer les égalités. À l'**essai rouge**, la méthode `isFull()` n'était pas définie. À l'**essai vert**, j'ai créé une double boucle qui parcourt le plateau : elle renvoie `false` si une case `_` subsiste, confirmant sinon que le plateau est saturé. |
+| **9. testPlayAtLastValidBoundary()** | 7cfd233166e6f19c7e6246f31e7e5443bb704e5c (R)  440072309317d7dccb973a13b54626b3fd559c83 (V) | **Test de la capacité à jouer sur la dernière borne valide du plateau** : Utilise l'index maximal (2,2). À l'**essai rouge**, on vérifiait si les calculs de limites causaient un bug. À l'**essai vert**, le code a été validé pour autoriser l'accès à la borne maximum sans erreur, prouvant la précision des index utilisés. |
+| **10. testPlayJustOutsideBoundary()** | 4c01071c76d8fb91a1eefa5f891f5cb88ff239c8 (R)  866792845eae6a01e227da9dfd299d3c1ebe5308 (V) | **Test de la capacité à jouer juste en dehors de la borne du plateau** : Test de robustesse sur l'index (3,3). À l'**essai rouge**, le test échouait car l'erreur n'était pas capturée proprement. À l'**essai vert**, j'ai ajouté une validation des index dans `play()` pour lancer une `ArrayIndexOutOfBoundsException` explicite en cas de dépassement. |
