@@ -100,6 +100,8 @@ class TicTest {
 	@Test 
     public void testPlayJustOutsideBoundary() {
         Tic game = new Tic(3, 3);
-            game.play(3, 3);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            game.play(3, 3); 
+        });
     }
 }

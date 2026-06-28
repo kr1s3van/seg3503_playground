@@ -24,9 +24,14 @@ public class Tic {
 	}
 
 	public void play(int r, int c) {
-    if (!board[r][c].equals("_")) throw new RuntimeException();
-    board[r][c] = turn;
-    turn = (turn.equals("X")) ? "O" : "X";
+		// check if the coordinates are within the bounds of the board
+		if (r < 0 || r >= rows || c < 0 || c >= cols) {
+            throw new ArrayIndexOutOfBoundsException("Coordonnees hors limites !");
+        }
+		// check if the cell is already occupied
+		if (!board[r][c].equals("_")) throw new RuntimeException();
+		board[r][c] = turn;
+		turn = (turn.equals("X")) ? "O" : "X";
     }
 
    	public boolean isWinner() {
