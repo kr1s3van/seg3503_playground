@@ -95,4 +95,11 @@ class TicTest {
         game.play(2, 2); 
         assertEquals("X", game.board[2][2]);
     }
+
+	// #10. testing ability to play just outside the boundary of the board
+	@Test 
+    public void testPlayJustOutsideBoundary() {
+        Tic game = new Tic(3, 3);
+            game.play(3, 3);
+    }
 }
