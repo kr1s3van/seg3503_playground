@@ -87,4 +87,12 @@ class TicTest {
 		}
 		assertTrue(game.isFull());
 	}
+
+	// #9. testing ability to play at the last valid boundary of the board
+	@Test 
+    public void testPlayAtLastValidBoundary() {
+        Tic game = new Tic(3, 3);
+        game.play(2, 2); 
+        assertEquals("X", game.board[2][2]);
+    }
 }
